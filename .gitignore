@@ -1,0 +1,7 @@
+.vagrant
+*~
+ansible.log
+.DS_Store
+.svnignore
+*.pyc
+.vscode

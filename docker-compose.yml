@@ -1,0 +1,34 @@
+version: '2'
+
+services:
+
+  ldap-replica:
+    restart: always
+    image: apontis.ch/ldap-replica:17.10-1.1
+    networks:
+      - sdn
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    # logging:
+    #   driver: syslog
+    environment:
+      - LDAP_HOST=ldap.apontis.ch:389
+      - LDAP_BIND_PW=${LDAP_BIND_PW}
+      - REPLICATION_INTERVAL=86400
+    stop_signal: SIGUSR1
+
+  foobar:
+    restart: always
+    image: busybox:1.28
+    networks:
+      - sdn
+    volumes:
+      - data:/data
+    # logging:
+    #   driver: syslog
+
+volumes:
+  data:
+
+networks:
+  sdn:

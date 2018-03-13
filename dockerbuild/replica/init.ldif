@@ -1,0 +1,9 @@
+dn: ou=people,dc=apontis,dc=ch
+ou: people
+objectclass: organizationalUnit
+objectClass: top
+
+dn: ou=group,dc=apontis,dc=ch
+ou: group
+objectclass: organizationalUnit
+objectClass: top
